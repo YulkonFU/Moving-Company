@@ -1,0 +1,844 @@
+* {
+    /* 页面初始化 清除元素的内外边距 */
+    padding: 0;
+    margin: 0;
+    list-style:none;
+}
+.navbar li {
+    /* 清除li元素前面的项目符号 */
+    list-style: none;
+}
+.navbar a {
+    /* 设置a样式*/
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    font-family: "华文中宋";
+}
+.navbar {
+    /*导航栏*/
+    width: 100%;
+    height: 120px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    /*为了使下拉列表展开时不会被视频覆盖,这里用relative 会抖*/
+    /*fixed 和 top0 用于固定导航栏不动*/
+    z-index: 999;
+    position: fixed;
+    top: 0;
+}
+.navbar .firRow {
+    /*设置导航栏首行*/
+    position: relative;
+    width: 100%;
+    height: 60px;
+}
+.navbar .firRow .titPic {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    left: -20px;
+}
+.navbar .firRow .titTxt {
+    /*设置导航栏首行中网站标题的位置*/
+    position: relative;
+    top: -55px;
+    left: 50px;
+}
+.navbar .firRow .login {
+    position: relative;
+    width: 200px;
+    height: 40px;
+    top: -130px;
+    left: 1060px;
+}
+.navbar .nav {
+    /* 让元素自动水平居中 */
+    width: 1200px;
+    height: 100%;
+    margin: 0px auto;
+}
+.navbar .nav > ul {
+    /*一级标题布局设置*/
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 60px;
+}
+.navbar .nav ul > li {
+    width: 100%;
+    height: 100%;
+}
+.navbar .nav ul > li > a {
+    /* 设置二级标题的a */
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 70px;
+    text-align: center;
+}
+.navbar .nav ul > li > ul {
+    /*ul样式*/
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    /* 盒子沿着y轴缩放到0 隐藏 */
+    transform: scaleY(0);
+    transform-origin: 50% 0;
+    transition: all 0.6s;
+}
+.navbar .nav ul > li > ul > li {
+    /*设置二级标题样式*/
+    height: 70px;
+    border-bottom: 1px solid rgb(245, 245, 245);
+}
+.navbar .nav ul > li > ul > li > a {
+    /*设置二级标题样式*/
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 70px;
+    text-align: center;
+    background: #fff;
+}
+.navbar .nav ul > li:hover ul { /*当悬停时，沿y轴缩放到1 展开*/
+    transform: scaleY(1);
+}
+.navbar .nav ul > li > ul > li a:hover {
+    background: #cc3333;
+    color: white;
+}
+/* 设置线条 */
+.navbar .nav ul .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 240px;
+    height: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background-color: #cc3333;
+    transition: all 0.5s;
+    /*鼠标焦点无视它，不无视就会抖*/
+    pointer-events: none;
+}
+.navbar .nav ul > li:nth-child(2):hover ~ .underline {
+    left: 240px;
+    background-color: #cc3333;
+}
+.navbar .nav ul > li:nth-child(3):hover ~ .underline {
+    left: 480px;
+    background-color: #cc3333;
+}
+.navbar .nav ul > li:nth-child(4):hover ~ .underline {
+    left: 720px;
+    background-color: #cc3333;
+}
+.navbar .nav ul > li:nth-child(5):hover ~ .underline {
+    left: 960px;
+    background-color: #cc3333;
+}
+.bgCont {
+    /*占满整个视窗*/
+    width: 95vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    left: 50px;
+    top: 122px;
+}
+.bg {
+    position: absolute;
+    z-index: -1;
+}
+.Gengduo {
+    position: absolute;
+    z-index: 1;
+    bottom: 120px;
+    right: 5%;
+    width: 50px;
+    height: 50px;
+    /*	background: rgba(225,225,225,0.5);*/
+    background: white;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 1);
+    /*	border: 3px solid #B4B4B4;*/
+    border-radius: 25px;
+}
+#loopToNext {
+    /*跳转时使用，该盒子在图片下面*/
+    width: 10%;
+    height: 60px;
+    position: absolute;
+    bottom: -130px;
+
+    background: rgba(0, 0, 0, 0);
+    /*
+
+	 z-index: 2222; background: black;
+*/
+}
+.ShiQiJianJie {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /*自动换行*/
+    flex-wrap: wrap;
+}
+.BiaoTi {
+    height: 43px;
+    width: 1200px;
+    border-bottom: solid 2px #E2091A;
+}
+.BiaoTi_1 {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    background: url("../images/bg.png") no-repeat;
+    background-size: 100% 100%;
+    line-height: 40px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+}
+.ShiQiJianJie_Con {
+    /*设置盒子大小及样式*/
+    height: 500px;
+    width: 1000px;
+    borde-top: 3px solid #EBE76D;
+    borde-left: 1px solid #f00;
+    border-right: 1px solid #f00;
+    border-bottom: 1px solid #f00;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+}
+.ShiQiJianJie_Con ul {
+    width: 1000px;
+    height: 500px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+.ShiQiJianJie_Con ul li {
+    position: relative;
+    float: left;
+    list-style-type: none;
+    width: 250px;
+    height: 500px;
+    transition: all 0.5s;
+}
+.ShiQiJianJie_Con ul li p {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 17px;
+    color: #f00;
+    background: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s;
+}
+.ShiQiJianJie_Con ul li:hover p {
+    /*下部字体放大*/
+    font-size: 24px;
+}
+
+.ShiQiJianJie_Con ul:hover li {
+    /*调整所有li大小，否则部分元素溢出*/
+    width: 120px;
+}
+
+.ShiQiJianJie_Con  ul li:hover{
+    width: 640px;
+}
+/*两栏布局*/
+.ShiZhengYaoWen {
+    /*总体设置*/
+    width: 1210px;
+    height: 550px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    /*添加背景*/
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+    backdrop-filter:blur(40px);
+}
+.ShiZhengYaoWen .left {
+    /*左盒子布局*/
+    position: relative;
+    width: 800px;
+    height: 500px;
+    overflow: hidden;
+}
+.ShiZhengYaoWen .right {
+    /*右盒子布局*/
+    position: relative;
+    top: 65px;
+    width: 400px;
+    height: 500px;
+    overflow: hidden;
+}
+
+.ShiZhengYaoWen .right h2
+{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-family: "华文中宋";
+}
+.ShiZhengYaoWen .right ul
+{
+    padding-left: 40px;
+    padding-right: 40px;
+    list-style: circle;
+    list-style-position: outside;
+    overflow: hidden;
+}
+.ShiZhengYaoWen .right a
+{
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    font-family: "华文中宋";
+}
+.ShiZhengYaoWen .right a:hover
+{
+    color: #f00;
+    text-decoration: underline;
+}
+
+
+
+.PBL
+{
+    width: 1200px;
+    height: auto;
+    margin:100px auto;
+}
+.PBL a
+{
+    text-decoration: none;
+    font-weight: 800;
+    font-family:"华文仿宋";
+    font-size: 18px;
+    text-align: center;
+    color: black;
+}
+.PuBuLiuBuJu {
+    width: 1200px;
+    margin: 0 auto;
+    column-count: 4;
+    column-gap: 5px;
+}
+.PuBuLiu {
+    margin-top: 5px;
+    padding: 2px;
+    background: white;
+}
+.PuBuLiu img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.wrap{height:510px;
+    width:790px;
+    position:absolute;
+    top: -20px;
+    left: -0px;
+    overflow: hidden;
+    position: relative;
+    margin:100px auto;}
+    .wrap ul{position:absolute;}
+    .wrap ol{position:absolute;
+    right:5px;
+    bottom:10px;}
+    .wrap ol li{height:20px; width: 20px;
+    background:#ccc;
+    border:solid 1px #666;
+    margin-left:4px;
+    color:#000;
+    float:left;
+    /*line-height:center;*/
+    text-align:center;
+    cursor:pointer;}
+    .wrap ol .on{background:#E97305;
+    color:#fff;}
+    .tail
+{
+    /*页面尾部*/
+    width: 100%;
+    height:80px;
+    background-color:black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    /*保持在最底下*/
+    bottom: 0;
+    position: relative;
+	margin-top: 50px;
+}
+.tail .JieShao
+{
+    /*介绍*/
+    width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+    /*采用弹性布局，主轴两端对齐，交叉轴中心对齐*/
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.tail .JieShaoXiang
+{
+    /*每一个项目*/
+    height: 60px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-family: "华文中宋";
+    list-style: none;
+}
+.tail .JieShaoXiang a
+{
+    /*让“小组介绍”中心与其他的在水平方向对齐*/
+    display: block;
+    padding-top: 10px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+.tail .JieShaoXiang a:hover
+{
+    text-decoration: underline;
+    color: #f00;
+}
+span{
+    color: #cc3333;
+}
+.BiaoTi5{
+    position: relative;
+    top: 200px;
+    margin-left: 300px;
+    height: 43px;
+    width: 1200px;
+    border-bottom: solid 2px #E2091A;
+}
+.BiaoTi_5
+{
+    display: block;
+    width: 200px;
+    margin-left: 550px;
+    background: url("../images/bg.png") no-repeat;
+    background-size: 100% 100%;
+    line-height: 40px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    position: relative;
+}
+#select{
+    display: none;
+}
+#select2{
+    display: none;
+}
+#select3{
+    display: none;
+}
+#select4{
+    display: none;
+}
+.card{
+    /*设置卡片大小，边缘阴影，变化时间*/
+    width: 290px;
+    height: 450px;
+    background-color: #ffffff;
+    box-shadow: 0 0 50px 10px rgba(0,0,0,.3);
+    transition: all .6s;
+    text-align: center;
+    margin-right:-100px;
+    margin-left: -60px;
+    margin-top: 20px;
+}
+.img{
+    /*设置卡片图片*/
+    width: 290px;
+    height: 200px;
+    background:url("../images/card1.png") no-repeat center center;
+    background-size: cover;
+    transition: all .6s;
+}
+.title{
+    /*设置标题大小，颜色*/
+    font-size: 30px;
+    color: rgb(88,88,88);
+    margin: 30px 0 15px 0;
+    transition: all .6s;
+    transition-delay: .2s;
+}
+.desc{
+    /*设置简介宽度，位置，行高*/
+    width: 290px;
+    margin-bottom: 20px;
+    margin-left: -30px;
+    padding: 0 30px;
+    line-height: 25px;
+    opacity: 1;
+    color:rgb(170,170,170);
+}
+.content{
+    /*设置内容宽度，位置，行高*/
+    display: none;
+    height:auto;
+    text-align: center;
+    padding: 0 20%;
+    line-height: 20px;
+    background-color: #ffffff;
+}
+.content p{
+    /*设置文字左对齐*/
+    margin: 30px 0;
+    text-align: left;
+    display: table;
+}
+#select_lable{
+    /*设置点击变化区域大小以及Z轴高度*/
+    display: block;
+    position: absolute;
+    width: 290px;
+    height: 450px;
+    z-index: 998;
+}
+#select:checked~.card #select_lable{
+    /*设置变化后宽度及高度与Z轴*/
+    width: 22vw;
+    height: 40vh;
+    z-index: 998;
+}
+#select:checked~.card{
+    /*设置变化后宽度及高度与Z轴*/
+    width: 22vw;
+    height: 40vh;
+    z-index: 998;
+}
+#select:checked~.card .img{
+    /*设置图片变化后宽度及高度与Z轴*/
+    width: 22vw;
+    height: 130px;
+    overflow: hidden;
+    z-index: 998;
+}
+#select:checked~.card .title{
+    /*设置标题变化后位置及大小*/
+    transform: translate(-10px);
+    color:black;
+    font-size: 35px;
+}
+#select:checked~.card .desc{
+    /*设置简介消失*/
+    display: none;
+    opacity: 0;
+}
+#select:checked~.card .content{
+    /*设置内容显示*/
+    display: block;
+    animation: content 2s;
+    transform: translateY(-0px);
+}
+.img2{
+    width: 290px;
+    height: 200px;
+    background:url("../images/card2.png") no-repeat center center;
+    background-size: cover;
+    transition: all .6s;
+}
+.title2{
+    font-size: 30px;
+    color: rgb(88,88,88);
+    margin: 30px 0 15px 0;
+    transition: all .6s;
+    transition-delay: .2s;
+}
+.desc2{
+    width: 290px;
+    margin-bottom: 20px;
+    margin-left: -30px;
+    padding: 0 30px;
+    line-height: 25px;
+    opacity: 1;
+    color:rgb(170,170,170);
+}
+.content2{
+    display: none;
+    height:auto;
+    text-align: center;
+    padding: 0 20%;
+    line-height: 20px;
+    background-color: #ffffff;
+}
+.content2 p{
+    margin: 30px 0;
+    text-align: left;
+    display: table;
+}
+#select_lable2{
+    display: block;
+    position: absolute;
+    width: 290px;
+    height: 450px;
+    z-index: 997;
+}
+#select2:checked~.card2 #select_lable2{
+    width: 22vw;
+    height: 40vh;
+    z-index: 997;
+}
+#select2:checked~.card2{
+    width: 22vw;
+    height: 40vh;
+    z-index: 997;
+}
+#select2:checked~.card2 .img2{
+    width: 22vw;
+    height: 130px;
+    overflow: hidden;
+    z-index: 997;
+}
+#select2:checked~.card2 .title2{
+    transform: translate(-10px);
+    color:black;
+    font-size: 35px;
+}
+#select2:checked~.card2 .desc2{
+    display: none;
+    opacity: 0;
+}
+#select2:checked~.card2 .icon2{
+    display: none;
+}
+#select2:checked~.card2 .content2{
+    display: block;
+    animation: content 2s;
+    transform: translateY(-0px);
+}
+.card2{
+    width: 290px;
+    height: 450px;
+    background-color: #ffffff;
+    box-shadow: 0 0 50px 10px rgba(0,0,0,.3);
+    transition: all .6s;
+    text-align: center;
+    margin-right: -100px;
+    margin-top: 20px;
+}
+.img3{
+    width: 290px;
+    height: 200px;
+    background:url("../images/card3.png") no-repeat center center;
+    background-size: cover;
+    transition: all .6s;
+}
+.title3{
+    font-size: 30px;
+    color: rgb(88,88,88);
+    margin: 30px 0 15px 0;
+    transition: all .6s;
+    transition-delay: .2s;
+}
+.desc3{
+    width: 290px;
+    margin-bottom: 20px;
+    margin-left: -30px;
+    padding: 0 30px;
+    line-height: 25px;
+    opacity: 1;
+    color:rgb(170,170,170);
+}
+.content3{
+    display: none;
+    height:auto;
+    text-align: center;
+    padding: 0 20%;
+    line-height: 20px;
+    background-color: #ffffff;
+}
+.content3 p{
+    margin: 30px 0;
+    text-align: left;
+    display: table;
+}
+#select_lable3{
+    display: block;
+    position: absolute;
+    width: 290px;
+    height: 450px;
+    z-index: 996;
+}
+#select3:checked~.card3 #select_lable3{
+    width: 22vw;
+    height: 40vh;
+    z-index: 996;
+}
+#select3:checked~.card3{
+    width: 22vw;
+    height: 40vh;
+    z-index: 996;
+}
+.box1{
+    position: relative;
+    top: 20px;
+    /*设置整体盒子位置及宽度*/
+    margin: 180px auto;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    width: 95%;
+}
+#select3:checked~.card3 .img3{
+    width: 22vw;
+    height: 130px;
+    overflow: hidden;
+    z-index: 996;
+}
+#select3:checked~.card3 .title3{
+    transform: translate(-10px);
+    color:black;
+    font-size: 35px;
+}
+#select3:checked~.card3 .desc3{
+    display: none;
+    opacity: 0;
+}
+#select3:checked~.card3 .icon3{
+    display: none;
+}
+#select3:checked~.card3 .content3{
+    display: block;
+    animation: content 2s;
+    transform: translateY(-0px);
+}
+.card3{
+    width: 290px;
+    height: 450px;
+    background-color: #ffffff;
+    box-shadow: 0 0 50px 10px rgba(0,0,0,.3);
+    transition: all .6s;
+    text-align: center;
+    margin-right: -100px;
+    margin-top: 20px;
+}
+.img4{
+    width: 290px;
+    height: 200px;
+    background:url("../images/card4.png") no-repeat center center;
+    background-size: cover;
+    transition: all .6s;
+}
+.title4{
+    font-size: 30px;
+    color: rgb(88,88,88);
+    margin: 30px 0 15px 0;
+    transition: all .6s;
+    transition-delay: .2s;
+}
+.desc4{
+    width: 290px;
+    margin-bottom: 20px;
+    margin-left: -30px;
+    padding: 0 30px;
+    line-height: 25px;
+    opacity: 1;
+    color:rgb(170,170,170);
+}
+.content4{
+    display: none;
+    height:auto;
+    text-align: center;
+    padding: 0 20%;
+    line-height: 20px;
+    background-color: #ffffff;
+}
+.content4 p{
+    margin: 30px 0;
+    text-align: left;
+    display: table;
+}
+#select_lable4{
+    display: block;
+    position: absolute;
+    width: 290px;
+    height: 450px;
+    z-index: 995;
+}
+#select4:checked~.card4 #select_lable4{
+    width: 22vw;
+    height: 40vh;
+    z-index: 995;
+}
+#select4:checked~.card4{
+    width: 22vw;
+    height: 40vh;
+    z-index: 995;
+}
+#select4:checked~.card4 .img4{
+    width: 22vw;
+    height: 130px;
+    overflow: hidden;
+    z-index: 995;
+}
+#select4:checked~.card4 .title4{
+    transform: translate(-10px);
+    color:black;
+    font-size: 35px;
+}
+#select4:checked~.card4 .desc4{
+    display: none;
+    opacity: 0;
+}
+#select4:checked~.card4 .icon4{
+    display: none;
+}
+#select4:checked~.card4 .content4{
+    display: block;
+    animation: content 2s;
+    transform: translateY(-0px);
+}
+.card4{
+    width: 290px;
+    height: 450px;
+    background-color: #ffffff;
+    box-shadow: 0 0 50px 10px rgba(0,0,0,.3);
+    transition: all .6s;
+    text-align: center;
+    margin-left:-0px;
+    margin-top: 20px;
+}
+@keyframes content{
+    /*设置变化方式*/
+    from{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(-40px);
+    }
+}
+.but{
+    background-color:#01AAED;
+    color: white;
+    border: #01AAED solid 0.5px;
+}
+.but1{
+    position: relative;
+    left: 80px;
+    top: -20px;
+    background-color: #01AAED;
+    color: white;
+    border: #01AAED solid 0.5px;
+}

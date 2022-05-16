@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SE22-movingconpany:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SE22_movingconpany_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SE22-movingconpany/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SE22-movingconpany" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mssql-jdbc-9.2.1.jre15" />
+          <element id="library" level="project" name="mssql-jdbc-9.2.1.jre151" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

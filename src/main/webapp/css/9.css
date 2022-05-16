@@ -1,0 +1,229 @@
+* {
+    /* 页面初始化 清除元素的内外边距 */
+    padding: 0;
+    margin: 0;
+    list-style:none;
+}
+body {
+    /* 添加背景图片且不随滚动条滚动 */
+    /*background: url();*/
+    background-attachment: fixed;
+}
+.navbar li {
+    /* 清除li元素前面的项目符号 */
+    list-style: none;
+}
+.navbar a {
+    /* 设置a样式*/
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    font-family: "华文中宋";
+}
+.navbar {
+    /*导航栏*/
+    width: 100%;
+    height: 120px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    /*为了使下拉列表展开时不会被视频覆盖,这里用relative 会抖*/
+    /*fixed 和 top0 用于固定导航栏不动*/
+    z-index: 999;
+    position: fixed;
+    top: 0;
+}
+.navbar .firRow {
+    /*设置导航栏首行*/
+    position: relative;
+    width: 100%;
+    height: 60px;
+}
+.navbar .firRow .titPic {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    left: -20px;
+}
+.navbar .firRow .titTxt {
+    /*设置导航栏首行中网站标题的位置*/
+    position: relative;
+    top: -55px;
+    left: 50px;
+}
+.navbar .firRow .login {
+    /*设置导航栏中搜素框*/
+    position: relative;
+    width: 130px;
+    height: 40px;
+    top: -130px;
+    left: 1060px;
+}
+.navbar .nav {
+    /* 让元素自动水平居中 */
+    width: 1200px;
+    height: 100%;
+    margin: 0px auto;
+}
+.navbar .nav > ul {
+    /*一级标题布局设置*/
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 60px;
+}
+.navbar .nav ul > li {
+    width: 100%;
+    height: 100%;
+}
+.navbar .nav ul > li > a {
+    /* 设置二级标题的a */
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 70px;
+    text-align: center;
+}
+.navbar .nav ul > li > ul {
+    /*ul样式*/
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    /* 盒子沿着y轴缩放到0 隐藏 */
+    transform: scaleY(0);
+    transform-origin: 50% 0;
+    transition: all 0.6s;
+}
+.navbar .nav ul > li > ul > li {
+    /*设置二级标题样式*/
+    height: 70px;
+    border-bottom: 1px solid rgb(245, 245, 245);
+}
+.navbar .nav ul > li > ul > li > a {
+    /*设置二级标题样式*/
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 70px;
+    text-align: center;
+    background: #fff;
+}
+.navbar .nav ul > li:hover ul { /*当悬停时，沿y轴缩放到1 展开*/
+    transform: scaleY(1);
+}
+.navbar .nav ul > li > ul > li a:hover {
+    background: #cc3333;
+    color: white;
+}
+/* 设置线条 */
+.navbar .nav ul .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 240px;
+    height: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background-color: #cc3333;
+    transition: all 0.5s;
+    /*鼠标焦点无视它，不无视就会抖*/
+    pointer-events: none;
+}
+.navbar .nav ul > li:nth-child(2):hover ~ .underline {
+    left: 240px;
+    background-color: #cc3333;
+}
+.navbar .nav ul > li:nth-child(3):hover ~ .underline {
+    left: 480px;
+    background-color: #cc3333;
+}
+.navbar .nav ul > li:nth-child(4):hover ~ .underline {
+    left: 720px;
+    background-color: #cc3333;
+}
+.navbar .nav ul > li:nth-child(5):hover ~ .underline {
+    left: 960px;
+    background-color: #cc3333;
+}
+.tail
+{
+    /*页面尾部*/
+    width: 1400px;
+    height:80px;
+    background-color:black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    /*保持在最底下*/
+    bottom: 0;
+    position: relative;
+	margin-top: 800px;
+    margin-left: -200px;
+}
+.tail .JieShao
+{
+    /*介绍*/
+    width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+    /*采用弹性布局，主轴两端对齐，交叉轴中心对齐*/
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.tail .JieShaoXiang
+{
+    /*每一个项目*/
+    height: 60px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-family: "华文中宋";
+    list-style: none;
+}
+.tail .JieShaoXiang a
+{
+    /*让“小组介绍”中心与其他的在水平方向对齐*/
+    display: block;
+    padding-top: 10px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+.tail .JieShaoXiang a:hover
+{
+    text-decoration: underline;
+    color: #f00;
+}
+.tit
+{
+    position: relative;
+    top: 140px;
+    margin-left: 450px;
+    
+}
+.text
+{
+    font-size: 20px;
+    border: solid 1px black;
+    width: 1000px;
+    height: 35px;
+}
+.title
+{
+    border-bottom: solid 1.5px black;
+    width: 1100px;
+    font-size: 30px;
+    margin-left: -40px;
+}
+.form-group
+{
+    margin-left:750px;
+    margin-top: -25px;
+}
+.but
+{
+    margin-left: 920px;
+    position: relative;
+    top: -25px;
+}
